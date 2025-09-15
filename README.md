@@ -81,7 +81,3 @@ This project is licensed under the **MIT License** — free to use, modify, and 
 ---
 
 ✨ Made with ❤️ by [hacktek90](https://github.com/hacktek90)
-
-```
-
-
