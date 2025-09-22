@@ -1,6 +1,6 @@
 // general-inject.js
 
-<script>(function() {
+(function() {
     // 1️⃣ Create container div
     const container = document.createElement("div");
     container.id = "inject-container";
@@ -57,4 +57,4 @@
         // You can also show a custom overlay or redirect here
     });
 })();
-</script>
+
