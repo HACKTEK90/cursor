@@ -1,60 +1,76 @@
-// general-inject.js
-
 (function() {
-    // 1️⃣ Create container div
-    const container = document.createElement("div");
-    container.id = "inject-container";
+  // Inject CSS
+  const style = document.createElement("style");
+  style.innerHTML = ``;
+  document.head.appendChild(style);
 
-    // 2️⃣ Inject your HTML here
-    container.innerHTML = `
-        <div id="my-content">
-            <h1>Injected HTML</h1>
-            <p>This is your dynamically injected HTML content.</p>
-            <button id="my-button">Click Me</button>
-        </div>
-    `;
+  // Inject HTML
+  document.body.insertAdjacentHTML("beforeend", `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML/CSS/JS to Single JS Converter</title>
+<style>
+  body { font-family: Arial, sans-serif; padding: 20px; background: #f9f9f9; }
+  textarea { width: 100%; height: 150px; margin-bottom: 10px; font-family: monospace; }
+  button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+  pre { background: #222; color: #fff; padding: 10px; white-space: pre-wrap; word-wrap: break-word; }
+</style>
+</head>
+<body>
 
-    // 3️⃣ Inject CSS dynamically
-    const style = document.createElement("style");
-    style.textContent = `
-        #inject-container {
-            font-family: Arial, sans-serif;
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-        #my-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            text-align: center;
-            background-color: #f0f0f0;
-        }
-        #my-content h1 { color: #333; margin-bottom: 10px; }
-        #my-content p { color: #555; margin-bottom: 20px; }
-        #my-content button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-    `;
+<h1>HTML + CSS + JS → Single JS Snippet</h1>
 
-    // 4️⃣ Append CSS and container to the document
-    document.head.appendChild(style);
-    document.body.appendChild(container);
+<label>HTML:</label>
+<textarea id="htmlInput" placeholder="Paste your HTML here"></textarea>
 
-    // 5️⃣ Add your JS functionality here
-    document.getElementById("my-button").addEventListener("click", () => {
-        alert("Button clicked! You can add your JS code here.");
-    });
+<label>CSS:</label>
+<textarea id="cssInput" placeholder="Paste your CSS here"></textarea>
 
-    // 6️⃣ Example: Right-click detection (optional)
-    document.addEventListener("contextmenu", function(event) {
-        event.preventDefault(); // Disable right-click menu
-        console.log("Right-click detected!");
-        // You can also show a custom overlay or redirect here
-    });
+<label>JS:</label>
+<textarea id="jsInput" placeholder="Paste your JS here"></textarea>
+
+<button id="convertBtn">Convert to Single JS</button>
+
+<h2>Output:</h2>
+<pre id="output"></pre>
+
+<script>
+document.getElementById("convertBtn").addEventListener("click", () => {
+  const html = document.getElementById("htmlInput").value.trim();
+  const css = document.getElementById("cssInput").value.trim();
+  const js = document.getElementById("jsInput").value.trim();
+
+  // Escape backticks for template literals
+  const escapedHTML = html.replace(/\`/g, '\\\`');
+  const escapedCSS = css.replace(/\`/g, '\\\`');
+
+  // Generate final JS snippet
+  const snippet = \`(function() {
+  // Inject CSS
+  const style = document.createElement("style");
+  style.innerHTML = \\`${escapedCSS}\\`;
+  document.head.appendChild(style);
+
+  // Inject HTML
+  document.body.insertAdjacentHTML("beforeend", \\`${escapedHTML}\\`);
+
+  // Inject JS
+  (function() {
+    ${js}
+  })();
+})();\`;
+
+  document.getElementById("output").textContent = snippet;
+});
+</script>
+
+</body>
+</html>`);
+
+  // Inject JS
+  (function() {
+    
+  })();
 })();
-
