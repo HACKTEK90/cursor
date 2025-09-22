@@ -27,6 +27,12 @@ Add this line before the closing `</body>` tag of your HTML:
 <script src="https://cdn.jsdelivr.net/gh/hacktek90/cursor@main/cursor-plugin.js" defer></script>
 ````
 
+For right block to refer block html
+```html
+<script src="https://cdn.jsdelivr.net/gh/hacktek90/cursor@main/rightclickblock.js" defer></script>
+````
+
+
 That’s it — no CSS, no HTML to copy. The plugin will inject everything automatically.
 
 ---
