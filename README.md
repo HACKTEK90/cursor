@@ -29,7 +29,7 @@ Add this line before the closing `</body>` tag of your HTML:
 
 For right block to refer block html
 ```html
-<script src="https://cdn.jsdelivr.net/gh/hacktek90/cursor@main/rightclickblock.js" defer></script>
+<script src="https://cdn.jsdelivr.net/gh/hacktek90/cursor@main/rightclkblock.js" defer></script>
 ````
 
 
