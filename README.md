@@ -31,6 +31,9 @@ For right block to refer block html
 ```html
 <script src="https://cdn.jsdelivr.net/gh/hacktek90/cursor@main/rightclkblock.js" defer></script>
 ````
+```html
+<script src="https://cdn.jsdelivr.net/gh/hacktek90/cursor@main/aisidebar.js" defer></script>
+````
 
 
 That’s it — no CSS, no HTML to copy. The plugin will inject everything automatically.
