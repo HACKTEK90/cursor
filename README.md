@@ -36,6 +36,7 @@ For right block to refer block html
 ````
 
 
+
 That’s it — no CSS, no HTML to copy. The plugin will inject everything automatically.
 
 ---
